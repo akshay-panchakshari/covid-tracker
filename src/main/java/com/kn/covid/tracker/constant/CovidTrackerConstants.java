@@ -13,5 +13,5 @@ public class CovidTrackerConstants {
 	public static final String VACCINE_API_ERROR_MSG = "Could not fetch vaccination data, remote api call failed : ";
 	public static final String RELATIME_API_INCORRECT_RESPONSE = "Incorrect response recieved from the API ! Please try again later!";
 	public static final String VACCINE_API_INCORRECT_RESPONSE = "Incorrect response recieved from vaccination API, showing default values!";
-	
+	public static final String NO_USER_INPUT = "No input recieved from user!";
 }

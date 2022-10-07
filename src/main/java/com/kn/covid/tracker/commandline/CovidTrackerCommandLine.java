@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import com.kn.covid.tracker.constant.CovidTrackerConstants;
 import com.kn.covid.tracker.exception.AppException;
 import com.kn.covid.tracker.model.StatsByCountry;
 import com.kn.covid.tracker.service.CovidTrackerService;
@@ -28,7 +29,7 @@ public class CovidTrackerCommandLine implements CommandLineRunner {
 			String str = scanner.nextLine();
 			generateStats(str);
 			if (str.isBlank()) {
-				throw new AppException("No input recieved from user!");
+				throw new AppException(CovidTrackerConstants.NO_USER_INPUT);
 			}
 		} catch (AppException e) {
 			System.out.println(e.getMessage());
