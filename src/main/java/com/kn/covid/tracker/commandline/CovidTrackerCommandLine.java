@@ -26,10 +26,10 @@ public class CovidTrackerCommandLine implements CommandLineRunner {
 			scanner = new Scanner(System.in);
 			System.out.print("Enter Country name (For Example:Germany) >> ");
 			String str = scanner.nextLine();
-			generateStats(str);
 			if (str.isBlank()) {
 				throw new AppException("No input recieved from user!");
 			}
+			generateStats(str);
 		} catch (AppException e) {
 			System.out.println(e.getMessage());
 		} finally {
