@@ -153,7 +153,7 @@ public class CovidTrackerService {
 		return new StatsByCountryBuilder().setConfirmedCases(realTimeData.getConfirmed())
 				.setRecoveredCases(realTimeData.getRecovered()).setDeaths(realTimeData.getDeaths())
 				.setVaccinationPercentage(getVaccinationPercentage(country))
-				.setRecoveredCases(getNewConfimedCases(realTimeData.getConfirmed(), country)).build();
+				.setNewConfirmedCases(getNewConfimedCases(realTimeData.getConfirmed(), country)).build();
 	}
 
 }
