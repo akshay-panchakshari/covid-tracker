@@ -72,10 +72,8 @@ public class CovidTrackerService {
 		VaccineDataResponse vaccineData = webClient.get()
 				.uri(uriBuilder -> uriBuilder.path(CovidTrackerConstants.VACCINES_URI)
 						.queryParam(CovidTrackerConstants.COUNTRY, country).build())
-				.retrieve().onStatus(HttpStatus::isError, response -> response.bodyToMono(Map.class).flatMap(body -> {
-					var message = body.toString();
-					return Mono.error(new Exception(message));
-				})).bodyToMono(VaccineDataResponse.class).onErrorMap(throwable -> new AppException(
+				.retrieve()
+				.bodyToMono(VaccineDataResponse.class).onErrorMap(throwable -> new AppException(
 						CovidTrackerConstants.VACCINE_API_ERROR_MSG + throwable.getMessage(), throwable))
 				.block();
 		return vaccineData;
